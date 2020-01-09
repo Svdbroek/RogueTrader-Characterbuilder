@@ -6,7 +6,7 @@ export function getOriginTier(tier, previousChoice) {
     let url;
     console.log(previousChoice);
     if (previousChoice) {
-      url = `/origin/${tier}?${previousChoice}`;
+      url = `/origin/${tier}?choice=${previousChoice}`;
     } else {
       url = `/origin/${tier}`;
     }
