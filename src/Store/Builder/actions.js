@@ -11,6 +11,13 @@ export function getOriginTier(tier, previousChoice) {
       url = `/origin/${tier}`;
     }
 
-    console.log(api(url));
+    api(url).then(choices => dispatch(tierChoices(choices)));
+  };
+}
+
+export function tierChoices(payload) {
+  return {
+    type: "TIER_CHOICES",
+    payload: payload
   };
 }
