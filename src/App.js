@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import homePage from "./components/homePage";
 import characterBuilder from "./components/characterBuilder";
-import "./App.css";
+import "./css/App.css";
 
 function App() {
   return (

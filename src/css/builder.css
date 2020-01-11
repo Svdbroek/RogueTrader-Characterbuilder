@@ -1,0 +1,12 @@
+.main {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  font-variant: small-caps;
+  background-color: palegoldenrod;
+  margin-bottom: 20px;
+  padding: 50px;
+  font-family: myFirstFont;
+  font-size: larger;
+  src: url("./FelinaGothicRegular.otf");
+}
