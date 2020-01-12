@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getMoreInfo } from "../Store/Subsection/actions";
+import Collapsible from "react-collapsible";
+
 import "../css/subsection.css";
 
 function mapStateToProps(state) {
@@ -26,22 +28,20 @@ class Subsection extends Component {
 
       if (effect[name].choice) {
         return (
-          <p>
-            <b>{name}: </b>
+          <Collapsible trigger={name} open='true'>
             <select className='select-sub-css'>
               {effect[name].choice.map(option => {
                 return <option>{option}</option>;
               })}
             </select>
-          </p>
+          </Collapsible>
         );
       }
 
       return (
-        <p>
-          <b>{name}: </b>
-          {effect[name]}
-        </p>
+        <Collapsible trigger={name}>
+          <p>{effect[name]}</p>
+        </Collapsible>
       );
     });
   };

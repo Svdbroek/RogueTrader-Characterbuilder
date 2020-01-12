@@ -11,7 +11,8 @@
   margin: 0;
   border: 1px solid #aaa;
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-  border-radius: 0.5em;
+  align-content: right;
+  margin: 10px;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -37,4 +38,39 @@
 }
 .select-sub-css option {
   font-weight: normal;
+}
+
+.Collapsible {
+  width: 100%;
+  text-align: left;
+  margin: 5px;
+}
+
+.Collapsible__contentInner {
+  background-image: url("../images/crumpled-rice-paper.jpg");
+  border: 1px;
+  border-color: rebeccapurple;
+  text-align: right;
+  padding-right: 20px;
+  font-family: "sans-serif";
+  font-weight: bold;
+  font-size: 12px;
+  border-style: solid;
+}
+
+.Collapsible__trigger {
+  display: block;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  font-weight: 400;
+  text-decoration: none;
+  border-top: solid rebeccapurple 1px;
+  border-left: solid rebeccapurple 1px;
+  border-right: solid rebeccapurple 1px;
+  background-color: rgb(172, 143, 201);
+}
+
+.Collapsible__trigger.is-closed {
+  border-bottom: solid rebeccapurple 1px;
 }
