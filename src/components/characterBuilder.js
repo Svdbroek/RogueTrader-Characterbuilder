@@ -151,6 +151,7 @@ class characterBuilder extends Component {
       <div>
         {tier}:{" "}
         <select
+          className='select-css'
           onChange={event => this.pickChangeHandler(tier, event.target.value)}>
           <option key='default' value={null}>
             Make a choice{" "}
@@ -173,7 +174,7 @@ class characterBuilder extends Component {
   render() {
     return (
       <div className='main'>
-        <form>
+        <form className='form'>
           Name{" "}
           <input
             type='name'

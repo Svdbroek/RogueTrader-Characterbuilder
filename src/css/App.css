@@ -1,4 +1,13 @@
 .App {
-  background-image: url("../images/crumpled-rice-paper.jpg");
+  background-image: url("../images/dan-slider-void-ship3.jpg");
   min-height: 100vh;
+  padding: 140px;
+  background-attachment: fixed;
 }
+/* 
+.body {
+  background-attachment: fixed;
+  background-image: url("../images/2327196281b74ade49f95d5ff5780957.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+} */

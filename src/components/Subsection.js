@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getMoreInfo } from "../Store/Subsection/actions";
+import "../css/subsection.css";
 
 function mapStateToProps(state) {
   return {
@@ -27,9 +28,10 @@ class Subsection extends Component {
         return (
           <p>
             <b>{name}: </b>
-            <select>
-              <option>{effect[name].choice[0]}</option>
-              <option>{effect[name].choice[1]}</option>
+            <select className='select-sub-css'>
+              {effect[name].choice.map(option => {
+                return <option>{option}</option>;
+              })}
             </select>
           </p>
         );

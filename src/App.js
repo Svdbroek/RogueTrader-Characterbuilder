@@ -7,10 +7,12 @@ import "./css/App.css";
 function App() {
   return (
     <div className='App'>
-      <Switch>
-        <Route route='/build' component={characterBuilder} />
-        <Route route='/' component={homePage} />
-      </Switch>
+      <div className='body'>
+        <Switch>
+          <Route route='/build' component={characterBuilder} />
+          <Route route='/' component={homePage} />
+        </Switch>
+      </div>
     </div>
   );
 }
