@@ -43,7 +43,12 @@
 .Collapsible {
   width: 100%;
   text-align: left;
-  margin: 5px;
+  margin: 25px;
+  border-style: solid;
+  border-image: url(/static/media/borderthing.b7f63cc4.png) round;
+  border-image-width: 21px;
+  border-image-outset: 8px;
+  border-image-slice: 14%;
 }
 
 .Collapsible__contentInner {
@@ -59,6 +64,12 @@
 }
 
 .Collapsible__trigger {
+  /*  border-image: url(/static/media/borderthing.b7f63cc4.png) 29% round;
+  border-image-width: 20px;
+  border-image-outset: 12px;
+  border-image-slice: 14%;
+  border-image-width: 30px;
+  border-image-outset: 10px; */
   display: block;
   padding-left: 10px;
   padding-top: 5px;
