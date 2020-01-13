@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { getOriginTier, clearStore } from "../Store/Builder/actions";
 import "../css/builder.css";
 import Subsection from "./Subsection";
+import { setChoice } from "../Store/Subsection/actions";
+import { submitAction } from "../Store/FormInfo/actions";
 
 function mapStateToProps(state) {
   return { builder: state.builder };
@@ -33,11 +35,19 @@ class characterBuilder extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  submitChoices = event => {
+    event.preventDefault();
+
+    this.props.dispatch(submitAction(this.state.name));
+  };
+
   pickChangeHandler = (tier, event) => {
     // needs some work on readability
     event = event.split(",");
     let value = parseInt(event[0]);
     let pick = event[1];
+
+    this.props.dispatch(setChoice(pick, tier));
     console.log(event, "event");
     console.log(pick, "pick");
     const tiers = [
@@ -60,7 +70,12 @@ class characterBuilder extends Component {
         trailsValue: null,
         motivationValue: null,
         careerValue: null,
-        done: null
+        done: null,
+        BirthrightPick: "",
+        LurePick: "",
+        TrailsPick: "",
+        MotivationPick: "",
+        CareerPick: ""
       });
       this.props.dispatch(
         clearStore([
@@ -81,7 +96,11 @@ class characterBuilder extends Component {
         trailsValue: null,
         motivationValue: null,
         careerValue: null,
-        done: null
+        done: null,
+        LurePick: "",
+        TrailsPick: "",
+        MotivationPick: "",
+        CareerPick: ""
       });
       this.props.dispatch(
         clearStore(["Lure", "Trails", "Motivation", "Career", "done"])
@@ -95,7 +114,10 @@ class characterBuilder extends Component {
         trailsValue: null,
         motivationValue: null,
         careerValue: null,
-        done: null
+        done: null,
+        TrailsPick: "",
+        MotivationPick: "",
+        CareerPick: ""
       });
       this.props.dispatch(
         clearStore(["Trails", "Motivation", "Career", "done"])
@@ -109,7 +131,9 @@ class characterBuilder extends Component {
         trailsValue: value - 1,
         motivationValue: null,
         careerValue: null,
-        done: null
+        done: null,
+        MotivationPick: "",
+        CareerPick: ""
       });
       this.props.dispatch(clearStore(["Motivation", "Career", "done"]));
       value =
@@ -124,7 +148,8 @@ class characterBuilder extends Component {
       this.setState({
         motivationValue: value - 1,
         careerValue: null,
-        done: null
+        done: null,
+        CareerPick: ""
       });
       this.props.dispatch(clearStore(["Career"]));
       value =
@@ -175,7 +200,7 @@ class characterBuilder extends Component {
   render() {
     return (
       <div className='main'>
-        <form className='form'>
+        <form className='form' onSubmit={event => this.submitChoices(event)}>
           Name{" "}
           <input
             type='name'
@@ -189,7 +214,7 @@ class characterBuilder extends Component {
                 "Homeworld"
               )
             : ""}
-          {this.state.HomeworldPick && (
+          {this.state.HomeworldPick && this.props.builder.tiers.Homeworld && (
             <Subsection pick={this.state.HomeworldPick} />
           )}
           {this.props.builder.tiers.Birthright
@@ -198,7 +223,7 @@ class characterBuilder extends Component {
                 "Birthright"
               )
             : ""}{" "}
-          {this.state.BirthrightPick ? (
+          {this.state.BirthrightPick && this.props.builder.tiers.Birthright ? (
             <Subsection pick={this.state.BirthrightPick} />
           ) : (
             ""
@@ -206,11 +231,15 @@ class characterBuilder extends Component {
           {this.props.builder.tiers.Lure
             ? this.createDropdown(this.props.builder.tiers.Lure, "Lure")
             : ""}{" "}
-          {this.state.LurePick ? <Subsection pick={this.state.LurePick} /> : ""}
+          {this.state.LurePick && this.props.builder.tiers.Lure ? (
+            <Subsection pick={this.state.LurePick} />
+          ) : (
+            ""
+          )}
           {this.props.builder.tiers.Trails
             ? this.createDropdown(this.props.builder.tiers.Trails, "Trails")
             : ""}{" "}
-          {this.state.TrailsPick ? (
+          {this.state.TrailsPick && this.props.builder.tiers.Trails ? (
             <Subsection pick={this.state.TrailsPick} />
           ) : (
             ""
@@ -221,7 +250,7 @@ class characterBuilder extends Component {
                 "Motivation"
               )
             : ""}{" "}
-          {this.state.MotivationPick ? (
+          {this.state.MotivationPick && this.props.builder.tiers.Motivation ? (
             <Subsection pick={this.state.MotivationPick} />
           ) : (
             ""
@@ -229,15 +258,19 @@ class characterBuilder extends Component {
           {this.props.builder.tiers.Career
             ? this.createDropdown(this.props.builder.tiers.Career, "Career")
             : ""}{" "}
-          {this.state.CareerPick ? (
+          {this.state.CareerPick && this.props.builder.tiers.Career ? (
             <Subsection pick={this.state.CareerPick} />
           ) : (
             ""
           )}
+          {/* {this.state.done && ( */}
+          <div>
+            <button>submit</button>
+          </div>
+          {/* )} */}
         </form>
       </div>
     );
   }
 }
-
 export default connect(mapStateToProps)(characterBuilder);

@@ -22,6 +22,7 @@ export default function reducer(state = defaultState, action) {
     case "CLEAR_ENTRY":
       const entry = action.payload;
       return { tiers: { ...state.tiers, [entry]: null } };
+
     default:
       return state;
   }

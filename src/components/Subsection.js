@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getMoreInfo } from "../Store/Subsection/actions";
 import Collapsible from "react-collapsible";
+import { setChoice } from "../Store/Subsection/actions";
 
 import "../css/subsection.css";
 
@@ -49,7 +50,13 @@ class Subsection extends Component {
               <Collapsible trigger={this.state.subpick}>
                 <p>{effect[name].subchoice[this.state.subpick].description}</p>
                 {effect[name].subchoice[this.state.subpick].choices && (
-                  <select className='select-sub-css'>
+                  <select
+                    className='select-sub-css'
+                    onChange={event =>
+                      this.props.dispatch(
+                        setChoice(event.target.value, this.state.subpick)
+                      )
+                    }>
                     <option>make a choice</option>
                     {effect[name].subchoice[this.state.subpick].choices.map(
                       option => {
@@ -70,7 +77,13 @@ class Subsection extends Component {
         return (
           <Collapsible trigger={name} open='true'>
             <p>{effect[name].description}</p>
-            <select className='select-sub-css'>
+            <select
+              className='select-sub-css'
+              onChange={event =>
+                this.props.dispatch(
+                  setChoice(event.target.value, Object.keys(effect))
+                )
+              }>
               <option>make a choice</option>
               {effect[name].choice.map(option => {
                 return <option>{option}</option>;
