@@ -12,6 +12,9 @@ function mapStateToProps(state) {
 }
 
 class Subsection extends Component {
+  state = {
+    subpick: null
+  };
   componentDidMount() {
     this.props.dispatch(getMoreInfo(this.props.pick));
   }
@@ -26,10 +29,49 @@ class Subsection extends Component {
     return effects.map(effect => {
       let name = Object.keys(effect);
 
+      if (effect[name].subchoice) {
+        return (
+          <div>
+            <Collapsible trigger={name} open='true'>
+              <p>{effect[name].description}</p>
+              <select
+                className='select-sub-css'
+                onChange={event =>
+                  this.setState({ subpick: event.target.value })
+                }>
+                <option>make a choice</option>
+                {effect[name].choice.map(option => {
+                  return <option value={option}>{option}</option>;
+                })}
+              </select>
+            </Collapsible>
+            {this.state.subpick && this.state.subpick !== "make a choice" ? (
+              <Collapsible trigger={this.state.subpick}>
+                <p>{effect[name].subchoice[this.state.subpick].description}</p>
+                {effect[name].subchoice[this.state.subpick].choices && (
+                  <select className='select-sub-css'>
+                    <option>make a choice</option>
+                    {effect[name].subchoice[this.state.subpick].choices.map(
+                      option => {
+                        return <option value={option}>{option}</option>;
+                      }
+                    )}
+                  </select>
+                )}
+              </Collapsible>
+            ) : (
+              ""
+            )}
+          </div>
+        );
+      }
+
       if (effect[name].choice) {
         return (
           <Collapsible trigger={name} open='true'>
+            <p>{effect[name].description}</p>
             <select className='select-sub-css'>
+              <option>make a choice</option>
               {effect[name].choice.map(option => {
                 return <option>{option}</option>;
               })}

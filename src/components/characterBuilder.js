@@ -34,6 +34,7 @@ class characterBuilder extends Component {
   };
 
   pickChangeHandler = (tier, event) => {
+    // needs some work on readability
     event = event.split(",");
     let value = parseInt(event[0]);
     let pick = event[1];
@@ -188,10 +189,8 @@ class characterBuilder extends Component {
                 "Homeworld"
               )
             : ""}
-          {this.state.HomeworldPick ? (
+          {this.state.HomeworldPick && (
             <Subsection pick={this.state.HomeworldPick} />
-          ) : (
-            ""
           )}
           {this.props.builder.tiers.Birthright
             ? this.createDropdown(
