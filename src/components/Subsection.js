@@ -37,9 +37,12 @@ class Subsection extends Component {
               <p>{effect[name].description}</p>
               <select
                 className='select-sub-css'
-                onChange={event =>
-                  this.setState({ subpick: event.target.value })
-                }>
+                onChange={event => {
+                  this.props.dispatch(
+                    setChoice(event.target.value, "Lure-sub")
+                  );
+                  this.setState({ subpick: event.target.value });
+                }}>
                 <option>make a choice</option>
                 {effect[name].choice.map(option => {
                   return <option value={option}>{option}</option>;

@@ -6,6 +6,6 @@ export function submitAction(name) {
     let form = state.subsection.choices;
     form = { ...form, name: name };
     console.log(form, "form");
-    api("/newCharacter", { method: "Post", body: form });
+    api("/character/new", { method: "Post", body: form });
   };
 }
