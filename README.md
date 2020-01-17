@@ -30,4 +30,4 @@ The character sheet is the heart of the app. It is there to display all relevant
 ## Backend 
 
 The app depends on a custom backend which can be found here: https://github.com/Svdbroek/rogueTrader_backend
-As previously mentioned the backend at the moment is very bare-bones and requires a lot of work. This means that currently, most choices in the origin path wil crash the app on the live version. 
+As previously mentioned the backend at the moment is very bare-bones and requires a lot of work. This means that currently, most choices in the origin path wil crash the app on the live version. the first choice in a list will always be viable
