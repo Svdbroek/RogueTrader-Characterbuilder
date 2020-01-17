@@ -1,5 +1,7 @@
 function api(endpoint, { method = "GET", body, jwt } = {}) {
-  return fetch("http://localhost:4000" + endpoint, {
+  const url = "https://rogue-trader-rpg.herokuapp.com" + endpoint;
+  console.log(url);
+  return fetch(url, {
     method: method,
     headers: {
       Authorization: `Bearer ${jwt}`,
