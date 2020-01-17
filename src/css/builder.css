@@ -15,6 +15,109 @@
   font-family: FelinaGothic;
   /* font-variant: small-caps; */
 }
+
+.statRoller {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  background-color: rgba(190, 170, 238, 0.7);
+  margin-bottom: 20px;
+  padding: 50px;
+  box-shadow: 0 0 100px 100px #beaaeeb3;
+
+  font-family: FelinaGothic;
+}
+.container {
+  margin: 0px;
+  margin-top: 20px;
+}
+
+.p {
+  margin: 0;
+  margin-top: 1rem;
+}
+.portrait {
+  width: 95px;
+}
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.display-flex > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  padding: 0;
+}
+.col {
+  padding: 0;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: rgba(190, 170, 238, 0.4);
+}
+.table {
+  font-size: 80%;
+}
+.col.outer {
+  margin: 10px;
+  border-style: solid;
+  border-image: url(/static/media/borderthing.b7f63cc4.png) round;
+  border-image-width: 21px;
+  border-image-outset: 8px;
+  border-image-slice: 14%;
+  background-image: url("../images/crumpled-rice-paper.jpg");
+}
+
+.col.inner {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.topRow.container {
+  border-style: solid;
+  border-image: url(/static/media/borderthing.b7f63cc4.png) round;
+  border-image-width: 21px;
+  border-image-outset: 8px;
+  border-image-slice: 14%;
+  background-image: url("../images/crumpled-rice-paper.jpg");
+}
+
+.portrait {
+  border-style: solid;
+  border-width: 3px;
+}
+
+.skillDescription {
+  font-size: 90%;
+}
+.skills.container {
+  border-style: solid;
+  border-image: url(/static/media/borderthing.b7f63cc4.png) round;
+  border-image-width: 21px;
+  border-image-outset: 8px;
+  border-image-slice: 14%;
+  padding: 12px;
+  background-image: url("../images/crumpled-rice-paper.jpg");
+}
+.sheet {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  background-color: rgba(190, 170, 238, 0.7);
+  margin-bottom: 20px;
+  padding: 50px;
+  box-shadow: 0 0 100px 100px #beaaeeb3;
+
+  font-family: FelinaGothic;
+}
+input[type="number"] {
+  text-align: right;
+  width: 50px;
+}
+
 .select-css {
   display: block;
   font-size: 16px;

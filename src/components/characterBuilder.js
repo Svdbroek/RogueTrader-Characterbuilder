@@ -39,6 +39,7 @@ class characterBuilder extends Component {
     event.preventDefault();
 
     this.props.dispatch(submitAction(this.state.name));
+    this.props.history.push("/statroller");
   };
 
   pickChangeHandler = (tier, event) => {
@@ -199,76 +200,80 @@ class characterBuilder extends Component {
 
   render() {
     return (
-      <div className='main'>
-        <form className='form' onSubmit={event => this.submitChoices(event)}>
-          Name{" "}
-          <input
-            type='name'
-            name='name'
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-          {this.props.builder.tiers.Homeworld
-            ? this.createDropdown(
-                this.props.builder.tiers.Homeworld,
-                "Homeworld"
-              )
-            : ""}
-          {this.state.HomeworldPick && this.props.builder.tiers.Homeworld && (
-            <Subsection pick={this.state.HomeworldPick} />
-          )}
-          {this.props.builder.tiers.Birthright
-            ? this.createDropdown(
-                this.props.builder.tiers.Birthright,
-                "Birthright"
-              )
-            : ""}{" "}
-          {this.state.BirthrightPick && this.props.builder.tiers.Birthright ? (
-            <Subsection pick={this.state.BirthrightPick} />
-          ) : (
-            ""
-          )}
-          {this.props.builder.tiers.Lure
-            ? this.createDropdown(this.props.builder.tiers.Lure, "Lure")
-            : ""}{" "}
-          {this.state.LurePick && this.props.builder.tiers.Lure ? (
-            <Subsection pick={this.state.LurePick} />
-          ) : (
-            ""
-          )}
-          {this.props.builder.tiers.Trails
-            ? this.createDropdown(this.props.builder.tiers.Trails, "Trails")
-            : ""}{" "}
-          {this.state.TrailsPick && this.props.builder.tiers.Trails ? (
-            <Subsection pick={this.state.TrailsPick} />
-          ) : (
-            ""
-          )}
-          {this.props.builder.tiers.Motivation
-            ? this.createDropdown(
-                this.props.builder.tiers.Motivation,
-                "Motivation"
-              )
-            : ""}{" "}
-          {this.state.MotivationPick && this.props.builder.tiers.Motivation ? (
-            <Subsection pick={this.state.MotivationPick} />
-          ) : (
-            ""
-          )}
-          {this.props.builder.tiers.Career
-            ? this.createDropdown(this.props.builder.tiers.Career, "Career")
-            : ""}{" "}
-          {this.state.CareerPick && this.props.builder.tiers.Career ? (
-            <Subsection pick={this.state.CareerPick} />
-          ) : (
-            ""
-          )}
-          {/* {this.state.done && ( */}
-          <div>
-            <button>submit</button>
-          </div>
-          {/* )} */}
-        </form>
+      <div className='builderContainer'>
+        <div className='main'>
+          <form className='form' onSubmit={event => this.submitChoices(event)}>
+            Name{" "}
+            <input
+              type='name'
+              name='name'
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+            {this.props.builder.tiers.Homeworld
+              ? this.createDropdown(
+                  this.props.builder.tiers.Homeworld,
+                  "Homeworld"
+                )
+              : ""}
+            {this.state.HomeworldPick && this.props.builder.tiers.Homeworld && (
+              <Subsection pick={this.state.HomeworldPick} />
+            )}
+            {this.props.builder.tiers.Birthright
+              ? this.createDropdown(
+                  this.props.builder.tiers.Birthright,
+                  "Birthright"
+                )
+              : ""}{" "}
+            {this.state.BirthrightPick &&
+            this.props.builder.tiers.Birthright ? (
+              <Subsection pick={this.state.BirthrightPick} />
+            ) : (
+              ""
+            )}
+            {this.props.builder.tiers.Lure
+              ? this.createDropdown(this.props.builder.tiers.Lure, "Lure")
+              : ""}{" "}
+            {this.state.LurePick && this.props.builder.tiers.Lure ? (
+              <Subsection pick={this.state.LurePick} />
+            ) : (
+              ""
+            )}
+            {this.props.builder.tiers.Trails
+              ? this.createDropdown(this.props.builder.tiers.Trails, "Trails")
+              : ""}{" "}
+            {this.state.TrailsPick && this.props.builder.tiers.Trails ? (
+              <Subsection pick={this.state.TrailsPick} />
+            ) : (
+              ""
+            )}
+            {this.props.builder.tiers.Motivation
+              ? this.createDropdown(
+                  this.props.builder.tiers.Motivation,
+                  "Motivation"
+                )
+              : ""}{" "}
+            {this.state.MotivationPick &&
+            this.props.builder.tiers.Motivation ? (
+              <Subsection pick={this.state.MotivationPick} />
+            ) : (
+              ""
+            )}
+            {this.props.builder.tiers.Career
+              ? this.createDropdown(this.props.builder.tiers.Career, "Career")
+              : ""}{" "}
+            {this.state.CareerPick && this.props.builder.tiers.Career ? (
+              <Subsection pick={this.state.CareerPick} />
+            ) : (
+              ""
+            )}
+            {this.state.done && (
+              <div>
+                <button>submit</button>
+              </div>
+            )}
+          </form>
+        </div>
       </div>
     );
   }
