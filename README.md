@@ -27,6 +27,10 @@ The stat roller modifies the base scores of the character, this can either be do
 The character sheet is the heart of the app. It is there to display all relevant information during the playing of a rogue trader game. Currently some of the data is hard-coded. In future updates the goal is to have the character sheet be fully responsive so things like hitpoints, ammo, skills, etc, etc, can be live tracked and updated. 
 
 
+## Instalation
+
+the app can be installed by running npm install in the rootfolder. To connect a local app to a local back-end you can change the url const in  api.js
+
 ## Backend 
 
 The app depends on a custom backend which can be found here: https://github.com/Svdbroek/rogueTrader_backend
