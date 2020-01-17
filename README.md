@@ -6,7 +6,7 @@ The overall goal of the app is to assist in the playing of the RPG and to help w
 
 This app was made as a graduation project for the Codaisseur Bootcamp, more info can be found on: http://codaisseur.nl/
 
-A live version of the app can be found at https://roguetraderbeyond.netlify.com/build
+A live version of the app can be found at https://roguetraderbeyond.netlify.com/
 
 ## Key functions
 
