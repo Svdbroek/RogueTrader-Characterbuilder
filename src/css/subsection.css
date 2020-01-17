@@ -44,7 +44,7 @@
   text-align: left;
   margin-bottom: 30px;
   border-style: solid;
-  border-image: url(/static/media/borderthing.b7f63cc4.png) round;
+  border-image: url("../images/borderthing.png") round;
   border-image-width: 21px;
   border-image-outset: 8px;
   border-image-slice: 14%;

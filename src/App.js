@@ -3,16 +3,18 @@ import { Switch, Route } from "react-router-dom";
 import homePage from "./components/homePage";
 import characterBuilder from "./components/characterBuilder";
 import "./css/App.css";
+import statRoller from "./components/statRoller";
+import charactersheet from "./components/charactersheet";
 
 function App() {
   return (
-    <div className='App'>
-      <div className='body'>
-        <Switch>
-          <Route route='/build' component={characterBuilder} />
-          <Route route='/' component={homePage} />
-        </Switch>
-      </div>
+    <div className='App '>
+      <Switch>
+        <Route exact path='/build' component={characterBuilder} />
+        <Route exact path='/statroller' component={statRoller} />
+        <Route path='/charactersheet/:id' component={charactersheet} />
+        <Route path='/' component={homePage} />
+      </Switch>
     </div>
   );
 }
