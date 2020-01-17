@@ -1,68 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#  Warhammer 40K Rogue Trader RPG characterbuilder
 
-## Available Scripts
+the Warhammer 40k RT-RPG characterbuilder is a proof of concept for a character creation tool for the Rogue Trader rpg pulbished by <a href= "https://www.fantasyflightgames.com/en/index/" > fantasy flight games </a>.
 
-In the project directory, you can run:
+The overall goal of the app is to assist in the playing of the RPG and to help with the building of characters, with a focus on readabilty and structuring of choices. The app is in no way meant as a replacement or replication of the source book.
 
-### `npm start`
+this app was made as a graduation project for the Codaisseur Bootcamp, more info can be found on: http://codaisseur.nl/
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A live version of the app can be found at https://roguetraderbeyond.netlify.com/build
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Key functions
 
-### `npm test`
+- making choices while running through the origin path, applying any choices made to a character
+- rolling and tracking stats for the character
+- displaying a "character sheet" that displays and translates the choices and modification in the first two steps
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Origin Path
+The origin path is the way new characters are created for the roguetrader rpg. It consists of a series of choices that each add features, traits, talents etc... to the character. the origin path feature tries to make this experience more palettable by displaying all the possible choices and effects in a digestable way. Currently not all choices work as the data in the backend is not yet complete. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###  Stat Roller
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The stat roller modifies the base scores of the character, this can either be done by hand, using any numerical value the user wishes for. Alternatively the user can use the "ROLL STATS" button to have the app roll all dice for them, using the sum of two simulated 10 sided dice
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Character Sheet
 
-### `npm run eject`
+The character sheet is the heart of the app. It is there to display all relevant information during the playing of a rogue trader game. Currently some of the data is hard-coded. In future updates the goal is to have the character sheet be fully responsive so things like hitpoints, ammo, skills, etc, etc, can be live tracked and updated. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Backend 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The app depends on a custom backend which can be found here: https://github.com/Svdbroek/rogueTrader_backend
+As previously mentioned the backend at the moment is very bare-bones and requires a lot of work. This means that currently, most choices in the origin path wil crash the app on the live version. 
