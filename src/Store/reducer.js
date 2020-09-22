@@ -1,12 +1,18 @@
 import { combineReducers } from "redux";
-import builderReducer from "./Builder/reducer";
-import subsectionReducer from "./Subsection/reducer";
-import statsReducer from "./statsRoller/reducer";
-import sheetReducer from "./Sheet/reducer";
+import originPathReducer from "./originpath/originPath.reducer.js";
+import birthrightReducer from "./originpath/birthright.reducer.js";
+import careerReducer from "./originpath/career.reducer.js";
+import homeworldReducer from "./originpath/homeworld.reducer.js";
+import lureOfTheVoidReducer from "./originpath/lureOfTheVoid.reducer.js";
+import motivationReducer from "./originpath/motivation.reducer.js";
+import trailsReducer from "./originpath/trails.reducer.js";
 
 export default combineReducers({
-  builder: builderReducer,
-  subsection: subsectionReducer,
-  stats: statsReducer,
-  sheet: sheetReducer
+  originPath: originPathReducer,
+  birthright: birthrightReducer,
+  career: careerReducer,
+  homeworld: homeworldReducer,
+  lureOfTheVoid: lureOfTheVoidReducer,
+  motivation: motivationReducer,
+  trails: trailsReducer,
 });
