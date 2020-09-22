@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class homePage extends Component {
   render() {
     return (
       <div>
-        <Redirect to={`build`} />
+        <Link to="build">
+          <button>Create a new Character</button>
+        </Link>
       </div>
     );
   }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getSheet } from "../Store/Sheet/actions";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -12,24 +11,22 @@ function mapStateToProps(state) {
 }
 
 class charactersheet extends Component {
-  componentDidMount() {
-    this.props.dispatch(getSheet(this.props.match.params.id));
-  }
+  componentDidMount() {}
   render() {
     const sheet = this.props.sheet;
     return (
       sheet && (
-        <div className='sheetContainer'>
-          <div className='sheet'>
-            <Container className='topRow'>
+        <div className="sheetContainer">
+          <div className="sheet">
+            <Container className="topRow">
               <Row>
                 <Col sm={3}>
-                  <img src={portrait} alt='portrait' className='portrait' />
+                  <img src={portrait} alt="portrait" className="portrait" />
                 </Col>
                 <Col sm={6}>
                   <div>
-                    <p className='p'> Name: {sheet.name}</p>
-                    <p className='p'>
+                    <p className="p"> Name: {sheet.name}</p>
+                    <p className="p">
                       Homeworld: {sheet.originpath.Homeworld} / Career:
                       {sheet.career}{" "}
                     </p>
@@ -37,23 +34,23 @@ class charactersheet extends Component {
                 </Col>
                 <Col sm={3}>
                   <div>
-                    <p className='p'>exp: {sheet.XP}</p>
-                    <p className='p'>spent: {sheet.XPspent}</p>
+                    <p className="p">exp: {sheet.XP}</p>
+                    <p className="p">spent: {sheet.XPspent}</p>
                   </div>
                 </Col>
               </Row>
             </Container>
-            <Container className='skills'>
+            <Container className="skills">
               <Row>
-                <Col className='skillDescription'>Weapon Skill</Col>
-                <Col className='skillDescription'>Ballistic Skill</Col>
-                <Col className='skillDescription'>Strength</Col>
-                <Col className='skillDescription'>Toughness</Col>
-                <Col className='skillDescription'>Agility</Col>
-                <Col className='skillDescription'>Intelligence</Col>
-                <Col className='skillDescription'>Perception</Col>
-                <Col className='skillDescription'>Willpower</Col>
-                <Col className='skillDescription'> Fellowship</Col>
+                <Col className="skillDescription">Weapon Skill</Col>
+                <Col className="skillDescription">Ballistic Skill</Col>
+                <Col className="skillDescription">Strength</Col>
+                <Col className="skillDescription">Toughness</Col>
+                <Col className="skillDescription">Agility</Col>
+                <Col className="skillDescription">Intelligence</Col>
+                <Col className="skillDescription">Perception</Col>
+                <Col className="skillDescription">Willpower</Col>
+                <Col className="skillDescription"> Fellowship</Col>
               </Row>
               <Row>
                 <Col>{sheet.characterstat["Weapon Skill"]}</Col>
@@ -69,8 +66,8 @@ class charactersheet extends Component {
             </Container>
             <Container>
               <Row>
-                <Col className='outer'>
-                  <Col className='inner'>
+                <Col className="outer">
+                  <Col className="inner">
                     <h3> Skills</h3>
                     {/*skills div */}
                     <div>
@@ -114,7 +111,7 @@ class charactersheet extends Component {
                     </div>
                   </Col>
                 </Col>
-                <Col className='outer'>
+                <Col className="outer">
                   <h3>Talents</h3>
                   <Table striped borderless hover>
                     <thead>
@@ -124,7 +121,7 @@ class charactersheet extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {sheet.talents.map(talent => {
+                      {sheet.talents.map((talent) => {
                         return (
                           <tr>
                             <td>{talent.Name}</td>
@@ -135,7 +132,7 @@ class charactersheet extends Component {
                     </tbody>
                   </Table>
                 </Col>
-                <Col className='outer'>
+                <Col className="outer">
                   <Container>
                     <h3>damage and affliction</h3>
                     <Row>
