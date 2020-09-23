@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
+import BaseComponent from "../../helpers/BaseComponent.helper";
 
-class HomeWorldOptions extends Component {
+class HomeWorldOptions extends BaseComponent {
   render() {
     return <div>1</div>;
   }

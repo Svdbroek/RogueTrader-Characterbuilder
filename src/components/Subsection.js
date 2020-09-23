@@ -1,20 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
+
 import { connect } from "react-redux";
 import { getMoreInfo } from "../Store/Subsection/actions";
 import Collapsible from "react-collapsible";
 import { setChoice } from "../Store/Subsection/actions";
 
 import "../css/subsection.css";
+import BaseComponent from "../helpers/BaseComponent.helper";
 
 function mapStateToProps(state) {
   return {
-    options: state.subsection
+    options: state.subsection,
   };
 }
 
-class Subsection extends Component {
+class Subsection extends BaseComponent {
   state = {
-    subpick: null
+    subpick: null,
   };
   componentDidMount() {
     this.props.dispatch(getMoreInfo(this.props.pick));
@@ -26,25 +28,26 @@ class Subsection extends Component {
     }
   }
 
-  effectPrinter = effects => {
-    return effects.map(effect => {
+  effectPrinter = (effects) => {
+    return effects.map((effect) => {
       let name = Object.keys(effect);
 
       if (effect[name].subchoice) {
         return (
           <div>
-            <Collapsible trigger={name} open='true'>
+            <Collapsible trigger={name} open="true">
               <p>{effect[name].description}</p>
               <select
-                className='select-sub-css'
-                onChange={event => {
+                className="select-sub-css"
+                onChange={(event) => {
                   this.props.dispatch(
                     setChoice(event.target.value, "Lure-sub")
                   );
                   this.setState({ subpick: event.target.value });
-                }}>
+                }}
+              >
                 <option>make a choice</option>
-                {effect[name].choice.map(option => {
+                {effect[name].choice.map((option) => {
                   return <option value={option}>{option}</option>;
                 })}
               </select>
@@ -54,15 +57,16 @@ class Subsection extends Component {
                 <p>{effect[name].subchoice[this.state.subpick].description}</p>
                 {effect[name].subchoice[this.state.subpick].choices && (
                   <select
-                    className='select-sub-css'
-                    onChange={event =>
+                    className="select-sub-css"
+                    onChange={(event) =>
                       this.props.dispatch(
                         setChoice(event.target.value, this.state.subpick)
                       )
-                    }>
+                    }
+                  >
                     <option>make a choice</option>
                     {effect[name].subchoice[this.state.subpick].choices.map(
-                      option => {
+                      (option) => {
                         return <option value={option}>{option}</option>;
                       }
                     )}
@@ -78,17 +82,18 @@ class Subsection extends Component {
 
       if (effect[name].choice) {
         return (
-          <Collapsible trigger={name} open='true'>
+          <Collapsible trigger={name} open="true">
             <p>{effect[name].description}</p>
             <select
-              className='select-sub-css'
-              onChange={event =>
+              className="select-sub-css"
+              onChange={(event) =>
                 this.props.dispatch(
                   setChoice(event.target.value, Object.keys(effect))
                 )
-              }>
+              }
+            >
               <option>make a choice</option>
-              {effect[name].choice.map(option => {
+              {effect[name].choice.map((option) => {
                 return <option>{option}</option>;
               })}
             </select>

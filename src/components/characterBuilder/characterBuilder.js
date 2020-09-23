@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
+
 import { connect } from "react-redux";
 import "../../css/builder.css";
+import BaseComponent from "../../helpers/BaseComponent.helper";
 import BirthrightOptions from "./BirthrightOptions";
 import CareerOptions from "./CareerOptions";
 import CharacterBuilderHeader from "./CharacterBuilderHeader";
@@ -14,7 +16,7 @@ function mapStateToProps(state) {
   return { originPath: state.builder };
 }
 
-class CharacterBuilder extends Component {
+class CharacterBuilder extends BaseComponent {
   state = {
     subPageIndex: 0,
   };

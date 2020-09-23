@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import homePage from "./components/homePage";
+import HomePage from "./components/HomePage";
 import characterBuilder from "./components/characterBuilder/characterBuilder";
 import "./css/App.css";
 import statRoller from "./components/statRoller";
@@ -13,7 +13,7 @@ function App() {
         <Route exact path="/build" component={characterBuilder} />
         <Route exact path="/statroller" component={statRoller} />
         <Route path="/charactersheet/:id" component={charactersheet} />
-        <Route path="/" component={homePage} />
+        <Route path="/" component={HomePage} />
       </Switch>
     </div>
   );

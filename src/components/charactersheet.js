@@ -1,16 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
+
 import { connect } from "react-redux";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
 import portrait from "../images/d4pmlp9-34c845fc-2b01-4413-be7d-0aacf069c913.jpg";
+import BaseComponent from "../helpers/BaseComponent.helper";
 
 function mapStateToProps(state) {
   return { sheet: state.sheet };
 }
 
-class charactersheet extends Component {
+class charactersheet extends BaseComponent {
   componentDidMount() {}
   render() {
     const sheet = this.props.sheet;

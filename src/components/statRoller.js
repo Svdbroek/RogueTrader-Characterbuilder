@@ -1,16 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
+
 import { Redirect } from "react-router";
 import { connect } from "react-redux";
 import { sumbitStateAction } from "../Store/statsRoller/actions";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import BaseComponent from "../helpers/BaseComponent.helper";
 
 function mapStateToProps(state) {
   return { stats: state.stats, sheet: state.sheet };
 }
 
-class statRoller extends Component {
+class statRoller extends BaseComponent {
   state = {
     "Weapon Skill": 0,
     "Ballistic Skill": 0,
@@ -24,10 +26,10 @@ class statRoller extends Component {
     cor: 0,
     ins: 0,
     fate: 0,
-    wound: 0
+    wound: 0,
   };
 
-  submitStats = event => {
+  submitStats = (event) => {
     event.preventDefault();
 
     let rolledValues = this.state;
@@ -44,11 +46,11 @@ class statRoller extends Component {
       "Intelligence",
       "Perception",
       "Willpower",
-      "Fellowship"
+      "Fellowship",
     ];
 
     statList.forEach(
-      value => (stats[value] = rolledValues[value] + base + others[value])
+      (value) => (stats[value] = rolledValues[value] + base + others[value])
     );
 
     this.props.dispatch(sumbitStateAction(stats, this.props.stats.stats.id));
@@ -65,10 +67,10 @@ class statRoller extends Component {
       "Intelligence",
       "Perception",
       "Willpower",
-      "Fellowship"
+      "Fellowship",
     ];
 
-    statlist.forEach(entry => {
+    statlist.forEach((entry) => {
       const roll1 = Math.ceil(Math.random() * 10);
       const roll2 = Math.ceil(Math.random() * 10);
       console.log(roll1);
@@ -83,15 +85,15 @@ class statRoller extends Component {
   //   componentDidMount() {
   //     this.props.dispatch(getStats(30)); //just for testing
   //   }
-  numberChange = event => {
+  numberChange = (event) => {
     const value = parseInt(event.target.value);
     this.setState({ [event.target.name]: value });
   };
   render() {
     const stats = this.props.stats.stats;
     return (
-      <div className='statRollerContainer'>
-        <div className='statRoller'>
+      <div className="statRollerContainer">
+        <div className="statRoller">
           {stats ? (
             <div>
               <h1> Ability Scores </h1>
@@ -121,7 +123,7 @@ class statRoller extends Component {
                   <Col>Rolled</Col>
                   <Col>
                     <input
-                      type='number'
+                      type="number"
                       name='"Weapon Skill"'
                       value={this.state["Weapon Skill"]}
                       onChange={this.numberChange}
@@ -130,7 +132,7 @@ class statRoller extends Component {
                   <Col>Rolled</Col>
                   <Col>
                     <input
-                      type='number'
+                      type="number"
                       name='"Ballistic Skill"'
                       value={this.state["Ballistic Skill"]}
                       onChange={this.numberChange}
@@ -140,7 +142,7 @@ class statRoller extends Component {
                   <Col>
                     {" "}
                     <input
-                      type='number'
+                      type="number"
                       name='"Strength"'
                       value={this.state["Strength"]}
                       onChange={this.numberChange}
@@ -189,7 +191,7 @@ class statRoller extends Component {
                   <Col>Rolled</Col>
                   <Col>
                     <input
-                      type='number'
+                      type="number"
                       name='"Toughness"'
                       value={this.state["Toughness"]}
                       onChange={this.numberChange}
@@ -198,7 +200,7 @@ class statRoller extends Component {
                   <Col>Rolled</Col>
                   <Col>
                     <input
-                      type='number'
+                      type="number"
                       name='"Agility"'
                       value={this.state["Agility"]}
                       onChange={this.numberChange}
@@ -207,7 +209,7 @@ class statRoller extends Component {
                   <Col>Rolled</Col>
                   <Col>
                     <input
-                      type='number'
+                      type="number"
                       name='"Intelligence"'
                       value={this.state["Intelligence"]}
                       onChange={this.numberChange}
@@ -258,7 +260,7 @@ class statRoller extends Component {
                   <Col>Rolled</Col>
                   <Col>
                     <input
-                      type='number'
+                      type="number"
                       name='"Perception"'
                       value={this.state["Perception"]}
                       onChange={this.numberChange}
@@ -267,7 +269,7 @@ class statRoller extends Component {
                   <Col>Rolled</Col>
                   <Col>
                     <input
-                      type='number'
+                      type="number"
                       name='"Willpower"'
                       value={this.state["Willpower"]}
                       onChange={this.numberChange}
@@ -276,7 +278,7 @@ class statRoller extends Component {
                   <Col>Rolled</Col>
                   <Col>
                     <input
-                      type='number'
+                      type="number"
                       name='"Fellowship"'
                       value={this.state["Fellowship"]}
                       onChange={this.numberChange}
@@ -315,8 +317,8 @@ class statRoller extends Component {
                     <Col>
                       result:{" "}
                       <input
-                        type='number'
-                        name='cor'
+                        type="number"
+                        name="cor"
                         value={this.state.cor}
                         onChange={this.numberChange}
                       />
@@ -332,8 +334,8 @@ class statRoller extends Component {
                     <Col>
                       result:{" "}
                       <input
-                        type='number'
-                        name='ins'
+                        type="number"
+                        name="ins"
                         value={this.state.ins}
                         onChange={this.numberChange}
                       />
@@ -349,8 +351,8 @@ class statRoller extends Component {
                     <Col>
                       result:{" "}
                       <input
-                        type='number'
-                        name='wound'
+                        type="number"
+                        name="wound"
                         value={this.state.wound}
                         onChange={this.numberChange}
                       />{" "}
@@ -362,8 +364,8 @@ class statRoller extends Component {
                     <Col>
                       result:{" "}
                       <input
-                        type='number'
-                        name='fate'
+                        type="number"
+                        name="fate"
                         value={this.state.fate}
                         onChange={this.numberChange}
                       />

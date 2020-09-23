@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
+import BaseComponent from "../../helpers/BaseComponent.helper";
 
-class MotivationOptions extends Component {
+class MotivationOptions extends BaseComponent {
   render() {
     return <div>5</div>;
   }
