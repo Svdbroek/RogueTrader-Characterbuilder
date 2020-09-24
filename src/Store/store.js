@@ -9,10 +9,12 @@ import { apiMiddleware } from "./api/api.middleware.js";
 import { APP, LOGOUT } from "./app/app.acs.js";
 
 //entity middleware
+import { characterBuilderMiddleware } from "./CharacterBuilder/characterBuilder.middleware.js";
 
 //reducers
 import appReducer from "./app/app.reducer.js";
 import characterBuilderReducer from "./CharacterBuilder/characterBuilder.reducer.js";
+import { actionSplitterMiddleware } from "./coreMiddleware/actionsplitter.middleware.js";
 
 const coreReducer = combineReducers({
   browser: createResponsiveStateReducer({
@@ -32,9 +34,9 @@ const rootReducer = (state, action) => {
   return coreReducer(state, action);
 };
 
-const entityMiddleware = [];
+const entityMiddleware = [characterBuilderMiddleware];
 
-const coreMiddleware = [apiMiddleware];
+const coreMiddleware = [actionSplitterMiddleware, apiMiddleware];
 
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
