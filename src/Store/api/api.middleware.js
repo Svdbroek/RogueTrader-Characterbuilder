@@ -3,15 +3,14 @@ import { API_REQUEST, apiError, apiSuccess } from "./api.actions.js";
 import { API_ROOT } from "../../config.js";
 
 export const apiMiddleware = ({ dispatch, getState }) => (next) => (action) => {
-  // console.log('apiMiddleware');
   next(action);
   if (action.type.includes(API_REQUEST)) {
+    console.log("apiMiddleware");
     const {
       url,
       method,
       entity,
       headers,
-      activeRole,
       auth,
       subEntity,
       cmdType,
@@ -27,7 +26,6 @@ export const apiMiddleware = ({ dispatch, getState }) => (next) => (action) => {
     axios.defaults.baseURL = API_ROOT;
 
     axios.defaults.headers.common["Content-Type"] = "application/json";
-    axios.defaults.headers.common["activeRole"] = activeRole;
 
     axios
       .request({
