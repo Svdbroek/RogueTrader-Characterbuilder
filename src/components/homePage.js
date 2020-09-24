@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import BaseComponent from "../helpers/BaseComponent.helper";
 import propsEnhancer from "../helpers/propsEnhancer.helper";
-import { redirect } from "../Store/app/app.acs";
+import { newCharacter } from "../Store/CharacterBuilder/charatcterBuilder.actions";
 
 function mapStateToProps(state) {
   return propsEnhancer({});
@@ -12,14 +12,14 @@ class HomePage extends BaseComponent {
   html() {
     return (
       <div>
-        <button onClick={() => this.testFunction()}>
+        <button onClick={() => this.createNewCharacter()}>
           Create a new Character
         </button>
       </div>
     );
   }
-  testFunction = () => {
-    this.props.dispatch(redirect("/build"));
+  createNewCharacter = () => {
+    this.props.dispatch(newCharacter());
   };
 }
 
