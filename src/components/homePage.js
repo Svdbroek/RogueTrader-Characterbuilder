@@ -1,14 +1,26 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import React from "react";
+import { connect } from "react-redux";
+import BaseComponent from "../helpers/BaseComponent.helper";
+import propsEnhancer from "../helpers/propsEnhancer.helper";
+import { newCharacter } from "../Store/CharacterBuilder/charatcterBuilder.actions";
 
-class homePage extends Component {
-  render() {
+function mapStateToProps(state) {
+  return propsEnhancer({});
+}
+
+class HomePage extends BaseComponent {
+  html() {
     return (
       <div>
-        <Redirect to={`build`} />
+        <button onClick={() => this.createNewCharacter()}>
+          Create a new Character
+        </button>
       </div>
     );
   }
+  createNewCharacter = () => {
+    this.props.dispatch(newCharacter());
+  };
 }
 
-export default homePage;
+export default connect(mapStateToProps)(HomePage);

@@ -5,19 +5,19 @@ const defaultState = {
     Lure: null,
     Trails: null,
     Motivation: null,
-    Career: null
-  }
+    Career: null,
+  },
 };
 
-export default function reducer(state = defaultState, action) {
+export default function characterBuilderReducer(state = defaultState, action) {
   switch (action.type) {
     case "TIER_CHOICES":
       const key = Object.keys(action.payload);
       return {
         tiers: {
           ...state.tiers,
-          [key]: action.payload[key]
-        }
+          [key]: action.payload[key],
+        },
       };
     case "CLEAR_ENTRY":
       const entry = action.payload;
